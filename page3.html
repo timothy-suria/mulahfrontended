@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link rel="stylesheet" href="page3.css"> <!-- Use the same stylesheet -->
+
+</head>
+<body>
+    <div class="navbar">
+        <h1>MULAH</h1>
+    </div>
+    <div class="container">
+        <h2>Summary of Your Information</h2>
+        <div class="summary">
+            <h3>Phone Number</h3>
+            <p id="phone-number"></p>
+        </div>
+        <div class="summary">
+            <h3>Name</h3>
+            <p id="name"></p>
+        </div>
+        <div class="summary">
+            <h3>Email</h3>
+            <p id="email"></p>
+        </div>
+        <div class="summary">
+            <h3>Birthday</h3>
+            <p id="birthday"></p>
+        </div>
+    </div>
+
+    <footer>Powered by <a href="https://www.mulahrewards.com">MulahRewards.com</a></footer>
+
+    <script>
+        // Retrieve data from session storage
+        document.getElementById('phone-number').textContent = sessionStorage.getItem('phoneNumber');
+        document.getElementById('name').textContent = sessionStorage.getItem('name');
+        document.getElementById('email').textContent = sessionStorage.getItem('email');
+        document.getElementById('birthday').textContent = sessionStorage.getItem('birthday');
+    </script>
+</body>
+</html>
