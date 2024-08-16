@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F3F3F3;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+}
+
+.navbar {
+    color: darkorange;
+    padding: 20px;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2 {
+    color: grey;
+}
+
+.container p {
+    font-style: italic;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: .5rem;
+    color: #888888;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #DDDDDD;
+    box-sizing: border-box;
+}
+
+.btn {
+    background-color: darkorange;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px; /* Use a larger value to make the button more circular */
+    font-size: 14px;
+    width: 100%;
+    cursor: pointer;
+}
+
+footer {
+    color: grey;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    border-top: #ccc solid 1px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Mobile Optimization */
+@media (max-width: 640px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .navbar {
+        padding: 10px;
+    }
+
+    .navbar h1 {
+        font-size: 24px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"] {
+        padding: 10px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+
+    footer {
+        padding: 5px;
+    }
+}
