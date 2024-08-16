@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="regis.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>MULAH</h1>
+    </div>
+    <div class="container">
+        <h2>REGISTRATION</h2>
+        <p>Please fill up your details.</p>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="birthday">Birthday</label>
+            <input type="text" id="day" placeholder="DD" maxlength="2" style="width: 22%; display: inline-block;">
+            <input type="text" id="month" placeholder="MM" maxlength="2" style="width: 22%; display: inline-block;">
+            <input type="text" id="year" placeholder="YYYY" maxlength="4" style="width: 40%; display: inline-block;">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Please insert a valid email address.">
+            <div class="checkbox">
+                <input type="checkbox" id="no-email" name="no-email">
+                <label for="no-email" style="display: inline-block;">No email address</label>
+            </div>
+        </div>
+        <button id="submit-btn" class="btn">Continue</button>
+        <p id="error-message" style="color: red;"></p>
+    </div>
+    <footer>Powered by <a href="https://www.mulahrewards.com">MulahRewards.com</a></footer>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            const name = document.getElementById('name').value.trim();
+            const day = document.getElementById('day').value.trim();
+            const month = document.getElementById('month').value.trim();
+            const year = document.getElementById('year').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const noEmail = document.getElementById('no-email').checked;
+            const errorMessage = document.getElementById('error-message');
+
+            // Reset error message
+            errorMessage.textContent = '';
+
+            // Validate name
+            if (name === '') {
+                errorMessage.textContent = 'Please enter your name.';
+                return;
+            }
+
+            // Validate birthday
+            if (!isValidDate(day, month, year)) {
+                errorMessage.textContent = 'Please enter a valid date of birth.';
+                return;
+            }
+
+            // Validate email or no-email checkbox
+            if (!noEmail && email === '') {
+                errorMessage.textContent = 'Please enter a valid email address or select "No email address".';
+                return;
+            }
+
+            if (!noEmail && !validateEmail(email)) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
+            // Store data in session storage
+            sessionStorage.setItem('name', name);
+            sessionStorage.setItem('birthday', `${day}/${month}/${year}`);
+            sessionStorage.setItem('email', noEmail ? 'Not Provided' : email);
+
+            // If all validations pass
+            window.location.href = './page3.html';
+        });
+
+        // Function to validate email format
+        function validateEmail(email) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
+        }
+
+        // Function to validate date
+        function isValidDate(day, month, year) {
+            const dayInt = parseInt(day, 10);
+            const monthInt = parseInt(month, 10);
+            const yearInt = parseInt(year, 10);
+
+            if (isNaN(dayInt) || isNaN(monthInt) || isNaN(yearInt)) return false;
+            if (dayInt < 1 || dayInt > 31 || monthInt < 1 || monthInt > 12 || yearInt < 1900 || yearInt > new Date().getFullYear()) return false;
+
+            // Check for valid days in specific months
+            const daysInMonth = new Date(yearInt, monthInt, 0).getDate();
+            return dayInt <= daysInMonth;
+        }
+    </script>
+</body>
+</html>
