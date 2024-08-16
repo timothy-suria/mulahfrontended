@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.navbar {
+    color: darkorange;
+    padding: 20px;
+}
+.navbar h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+}
+.container {
+    margin-top: 50px;
+}
+.container h2 {
+    font-family: 'Times New Roman', Times, serif;
+    color: grey;
+    font-size: 38px;
+}
+.container p {
+    font-size: 18px;
+    color: darkorange;
+}
+.input-group {
+    margin: 20px 0;
+}
+.input-group input {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: none; /* Removes all borders */
+    border-bottom: 2px solid orange; /* Adds an orange line at the bottom */
+    margin-right: 10px;
+    width: 200px;
+    border-radius: 0; /* Removes border radius */
+}
+.input-group input:first-child {
+    width: 60px;
+}
+.input-group input::placeholder {
+    color: #999;
+}
+
+.button {
+    background-color: darkorange;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px; /* Use a larger value to make the button more circular */
+    font-size: 14px;
+    width: 200px;
+    cursor: pointer;
+}
+
+footer{
+    color: grey;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    border-top: #ccc solid 1px;
+    width: 100%;
+}
+
+@media (max-width: 640px) { 
+    body { font-size: 14px; } 
+    .navbar { padding: 10px; } 
+    .navbar h1 { font-size: 30px; } 
+    .container { margin-top: 30px; } 
+    .container h2 { font-size: 24px; } 
+    .container p { font-size: 14px; } 
+    .input-group input { width: 150px; } 
+    .button { padding: 10px 20px; font-size: 14px; } 
+    footer { padding: 5px; } 
+}
